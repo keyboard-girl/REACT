@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatBot</title>
+    <style>
+
+    </style>
+
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!--LIBRERIAS-->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/chatbot.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> <!-- ES UN COMPILADOR DE JS, ya que react usa JSX NO JS -->
+    <script type="text/babel">
+
+
+
+    //RENDERIZADO
+    const container = document.querySelector('.js-container'); 
+    const root = ReactDOM.createRoot(container);
+    root.render(<App/>);
+
+    </script>
+  </body>
+</html>

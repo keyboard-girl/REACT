@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChatBot</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <!--LIBRERIAS-->
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> <!-- ES UN COMPILADOR DE JS, ya que react usa JSX NO JS -->
+    <script type="text/babel">
+      
+      //COMPORTAMIENTOS Y COMPONENTES
+      function ChatInput(){
+        return (//solo podemos retornar 1 valor (por eso el div)
+        <>
+          <input 
+            type="text" 
+            placeholder="Send a message to ChatBot" 
+            size="30"
+          />
+          <button>Send</button>
+        </>
+        );
+      }
+
+      function ChatMessage({message, sender}){//Puedo hacer ChatMessage(props), o ChatMessage({message, sender}) en caso de destructuring
+        //console.log(props); //props es un objeto que tiene como atributos a las propiedades que yo cree en la etiqueta html de esta funcion
+        
+        ///const msg = props.message; // === Destructuring: const  {message} = props;
+        //const sender = props.sender;
+        //ambas === const {message, sender} = props; DEBE SER EL MISMO NOMBRE DE LAS PROPIEDADES
+        /*
+        if (sender === 'robot'){
+          return(
+            <div>
+              <img src="robot.png" width="50"/>
+              {msg}
+          </div>
+          )
+        }*/
+
+        return(
+          <div>
+           {sender === 'robot' && (
+              <img src="robot.png" width="50"/>
+            )}
+            {message}
+            {sender === 'user' && (
+              <img src="user.png" width="50"/>
+            )}
+            
+          </div>
+
+        );
+      }
+
+      //ELEMENTOS A RENDERIZAR----
+
+      function App(){
+        return(
+
+          <>
+            <ChatInput/>
+            <ChatMessage 
+              message="hello ChatBot" 
+              sender="user" 
+            />
+            <ChatMessage 
+              message="Hello! How can I help you?" 
+              sender="robot" 
+            />
+            <ChatMessage 
+              message="Can you get me todays date?" 
+              sender="user" 
+            />
+            <ChatMessage 
+              message="Today is September 27" 
+              sender="robot" 
+            />
+          </>
+
+        );
+      }
+
+      /*
+      const app = ( //SEPARAMOS JS de HTML
+        <> 
+          <ChatInput/>
+          <ChatMessage 
+            message="hello ChatBot" 
+            sender="user" 
+          />
+          <ChatMessage 
+            message="Hello! How can I help you?" 
+            sender="robot" 
+          />
+          <ChatMessage 
+            message="Can you get me todays date?" 
+            sender="user" 
+          />
+          <ChatMessage 
+            message="Today is September 27" 
+            sender="robot" 
+          />
+        </>
+    ); 
+    */
+
+
+    //RENDERIZADO
+    const container = document.querySelector('.js-container'); //transforma elem html en js + lo guardo en una var container
+    const root = ReactDOM.createRoot(container);//OJO LO NECESITA COMO ANCLA
+    //root.render(app); //Esta es la forma de renderizar varias cosas a la vez
+    //Como ahora es un componente => usar (<App/>)
+    root.render(<App/>);
+
+    </script>
+  </body>
+</html>
