@@ -1,10 +1,10 @@
-import {Link} from 'rect-router'
+import {Link} from 'react-router'
 import './header.css'
 
 export function Header(){
     return(
         <>
-                    <div className="header">
+                <div className="header">
                 <div className="left-section">
                     <Link to="/" className="header-link">
                         <img className="logo"
