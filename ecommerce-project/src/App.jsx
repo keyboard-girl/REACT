@@ -11,14 +11,13 @@ function App() {
 
     const [cart, setCart] = useState([]);
 
-    useEffect(()=>{
-    const fetchAppData = async () => {
+    const loadCart = async () => {
       const response = await axios.get("/api/cart-items?expand=product") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
       setCart(response.data);
     }
 
-    fetchAppData();
-
+    useEffect(()=>{
+      loadCart();
     }, [])
 
 
@@ -35,7 +34,7 @@ function App() {
 //path = "/" es i gual a index
   return (
     <Routes>
-      <Route index element= {<HomePage cart={cart}/>} /> 
+      <Route index element= {<HomePage cart={cart} loadCart={loadCart} />} /> 
       <Route path="checkout" element= {<CheckoutPage cart={cart} />} />   
       <Route path="orders" element= {<OrdersPage cart={cart}/>} />   
       <Route path="tracking" element= {<TrackingPage cart={cart}/>} />   
