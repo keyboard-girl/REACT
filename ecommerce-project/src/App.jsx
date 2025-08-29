@@ -1,7 +1,7 @@
 import {Routes, Route } from 'react-router'
 import { HomePage } from './pages/home/HomePage'
 import { CheckoutPage } from './pages/checkout/CheckoutPage';
-import { OrdersPage } from './pages/OrdersPage';
+import { OrdersPage } from './pages/orders/OrdersPage';
 import { TrackingPage } from './pages/TrackingPage';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -11,15 +11,25 @@ function App() {
 
     const [cart, setCart] = useState([]);
 
-        useEffect(()=> {
+    useEffect(()=>{
+    const fetchAppData = async () => {
+      const response = await axios.get("/api/cart-items?expand=product") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
+      setCart(response.data);
+    }
 
-        axios.get("http://localhost:3000/api/cart-items?expand=product") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
-
-        .then(response=>{
-            setCart(response.data)
-        });
+    fetchAppData();
 
     }, [])
+
+
+    
+    /*useEffect(()=> {
+
+    axios.get("http://localhost:3000/api/cart-items?expand=product") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
+
+    .then(response=>{
+        setCart(response.data)
+    });*/
 
 
 //path = "/" es i gual a index
