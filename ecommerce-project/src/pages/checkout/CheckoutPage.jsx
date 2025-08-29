@@ -8,18 +8,22 @@ import { useState, useEffect } from "react";
 
 //TITLE: parq q sea diferente en cada pagina, puedo escribirlo al inicio y ya
 
-export function CheckoutPage({ cart }) {
+export function CheckoutPage({ cart, loadCart }) {
 
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummary, setPaymentSummary] = useState([]);
     
-    useEffect(() => {
 
+    useEffect(() => {
         axios.get("/api/delivery-options?expand=estimatedDeliveryTime") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
 
             .then(response => {
                 setDeliveryOptions(response.data)
             });
+
+    }, [])
+
+    useEffect(() => {
 
         axios.get("/api/payment-summary") //ESO DESPUES DEL ? ES UN QUERY REQUEST, que pide expandir los subelementos de una tabla. en este caso es cart>products>...datos del producto...
 
@@ -27,9 +31,7 @@ export function CheckoutPage({ cart }) {
                 setPaymentSummary(response.data)
             });
 
-    }, [])
-
-
+    }, [cart])
 
 
 
@@ -62,7 +64,7 @@ export function CheckoutPage({ cart }) {
 
                 <div className="checkout-grid">
                     
-                    <OrderSummary cart={cart}  deliveryOptions={deliveryOptions} />
+                    <OrderSummary cart={cart}  deliveryOptions={deliveryOptions} loadCart={loadCart} />
 
                     <PaymentSummary paymentSummary={paymentSummary} />
                 </div>
