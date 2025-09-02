@@ -24,5 +24,5 @@ export function ProductsGrid({products, loadCart}){
                     })}
 
                 </div>
-        )
+        );
 }
