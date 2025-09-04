@@ -1,6 +1,8 @@
 import {Link, useNavigate} from 'react-router'
 import { useState } from 'react';
 import './header.css'
+import loga from './loga.png'; // IMPORTAR LA IMAGEN
+import mobileLoga from './mobile-loga.png'; // IMPORTAR LA IMAGEN
 
 export function Header({cart}){
 
@@ -35,13 +37,15 @@ export function Header({cart}){
 
     return(
         <>
+                <img src="./loga.png" />
+                
                 <div className="header">
                 <div className="left-section">
                     <Link to="/" className="header-link">
                         <img className="logo"
-                            src="images/loga.png" />
+                            src={loga} />
                         <img className="mobile-logo"
-                            src="images/mobile-loga.png" />
+                            src={mobileLoga} />
                     </Link>
                 </div>
 
@@ -63,11 +67,13 @@ export function Header({cart}){
                         <span className="orders-text">Orders</span>
                     </Link>
 
+                <div className="cart-box">
                     <Link className="cart-link header-link" to="/checkout">
                         <img className="cart-icon" src="images/icons/cart-icon.png" />
                         <div className="cart-quantity">{totalQuantity}</div>
                         <div className="cart-text">Cart</div>
                     </Link>
+                    </div>
                 </div>
             </div>
         </>

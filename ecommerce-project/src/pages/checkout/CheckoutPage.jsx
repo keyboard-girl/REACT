@@ -1,9 +1,11 @@
 import "./checkout-header.css";
 import "./CheckoutPage.css";
 import { OrderSummary } from "./OrderSummary";
-import {PaymentSummary} from './PaymentSummary'
+import {PaymentSummary} from './PaymentSummary';
 import axios from 'axios';
 import { useState, useEffect } from "react";
+import loga from './loga.png'; 
+import mobileLoga from './mobile-loga.png'; 
 
 
 //TITLE: parq q sea diferente en cada pagina, puedo escribirlo al inicio y ya
@@ -43,8 +45,8 @@ export function CheckoutPage({ cart, loadCart }) {
                 <div className="header-content">
                     <div className="checkout-header-left-section">
                         <a href="/">
-                            <img className="logo" src="images/logo.png" />
-                            <img className="mobile-logo" src="images/mobile-logo.png" />
+                            <img className="logo" src={loga} />
+                            <img className="mobile-logo" src={mobileLoga} />
                         </a>
                     </div>
 

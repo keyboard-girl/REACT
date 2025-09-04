@@ -138,9 +138,7 @@
   align-items: center;
   margin-bottom: 8px;
 
-  /* At first, the "Added to cart" message will
-     be invisible. Use JavaScript to change the
-     opacity and make it visible. */
+  
   opacity: 0;
 }
 
@@ -154,4 +152,5 @@
   padding: 8px;
   height: 34px;
   margin-top: 1px;
+  background-color: rgb(39, 10, 85);
 }
