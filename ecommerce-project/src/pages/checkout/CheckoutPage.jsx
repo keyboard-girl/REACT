@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useState, useEffect } from "react";
 import loga from './loga.png'; 
 import mobileLoga from './mobile-loga.png'; 
+import {Header} from "../../components/Header";
 
 
 //TITLE: parq q sea diferente en cada pagina, puedo escribirlo al inicio y ya
@@ -36,30 +37,11 @@ export function CheckoutPage({ cart, loadCart }) {
     }, [cart])
 
 
-
     return (
         <>
             <title>Checkout</title>
 
-            <div className="checkout-header">
-                <div className="header-content">
-                    <div className="checkout-header-left-section">
-                        <a href="/">
-                            <img className="logo" src={loga} />
-                            <img className="mobile-logo" src={mobileLoga} />
-                        </a>
-                    </div>
-
-                    <div className="checkout-header-middle-section">
-                        Checkout (<a className="return-to-home-link"
-                            href="/">3 items</a>)
-                    </div>
-
-                    <div className="checkout-header-right-section">
-                        <img src="images/icons/checkout-lock-icon.png" />
-                    </div>
-                </div>
-            </div>
+            <Header cart={cart}/> 
 
             <div className="checkout-page">
                 <div className="page-title">Review your order</div>
