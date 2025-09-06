@@ -37,11 +37,7 @@ export function Header({cart}){
 
     return(
         <>
-                                <div className="cart-box">
-                    <Link className="cart-link header-link" to="/checkout">
-                        <img className="cart-icon" src="images/icons/cart-icon.png" />
-                    </Link>
-                </div>
+                
                 
                 <div className="header">
 
@@ -56,10 +52,13 @@ export function Header({cart}){
 
                 <div className="middle-section">
 
-                
+                    <div className="cart-box">
+                        <Link className="cart-link header-link" to="/checkout">
+                            <img className="cart-icon" src="images/icons/cart-icon.png" />
+                        </Link>
+                    </div>
 
                     <button className="search-button">
-
                     </button>
                 </div>
 
