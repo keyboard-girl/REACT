@@ -37,9 +37,14 @@ export function Header({cart}){
 
     return(
         <>
-                <img src="./loga.png" />
+                                <div className="cart-box">
+                    <Link className="cart-link header-link" to="/checkout">
+                        <img className="cart-icon" src="images/icons/cart-icon.png" />
+                    </Link>
+                </div>
                 
                 <div className="header">
+
                 <div className="left-section">
                     <Link to="/" className="header-link">
                         <img className="logo"
@@ -50,32 +55,18 @@ export function Header({cart}){
                 </div>
 
                 <div className="middle-section">
-                    <input className="search-bar" type="text" placeholder="Search" 
-                    onChange={updateSearchTerms}
-                    value={searchTerms}
-                    />
+
+                
 
                     <button className="search-button">
-                        <img className="search-icon" src="images/icons/search-icon.png" 
-                        onClick={loadFilteredProducts}/>
+
                     </button>
                 </div>
 
-                <div className="right-section">
-                    <Link className="orders-link header-link" to="/orders">
+               </div> 
 
-                        <span className="orders-text">Orders</span>
-                    </Link>
-
-                <div className="cart-box">
-                    <Link className="cart-link header-link" to="/checkout">
-                        <img className="cart-icon" src="images/icons/cart-icon.png" />
-                        <div className="cart-quantity">{totalQuantity}</div>
-                        <div className="cart-text">Cart</div>
-                    </Link>
-                    </div>
-                </div>
-            </div>
+                
+            
         </>
     )
 }
