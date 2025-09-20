@@ -6,8 +6,28 @@ import './HomePage.css'
 import {ProductsGrid} from './ProductsGrid'
 import { useSearchParams } from 'react-router';
 //import { useLocation } from 'react-router';
+import GallerySlider from './components/GallerySlider';
 
 export function HomePage({cart, loadCart}) {
+
+    const galleryImages = [
+    {
+      src: '/images/product1.jpg',
+      alt: 'Producto 1'
+    },
+    {
+      src: '/images/product2.jpg', 
+      alt: 'Producto 2'
+    },
+    {
+      src: '/images/product3.jpg',
+      alt: 'Producto 3'
+    },
+    {
+      src: '/images/product4.jpg',
+      alt: 'Producto 4'
+    }
+  ];
 
     const [products, setProducts] = useState([]);
 
@@ -47,6 +67,9 @@ export function HomePage({cart, loadCart}) {
             <Header cart={cart}/>
             <div className="home-page">
 
+            <GallerySlider images={galleryImages} />
+
+            
             <ProductsGrid products={products} loadCart={loadCart} />
             </div>
         </>
