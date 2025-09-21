@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import './GallerySlider.css';
 
 const GallerySlider = ({ images }) => {
-  const [selectedImage, setSelectedImage] = useState(0);
+  const [, setSelectedImage] = useState(0);
 
   return (
     <div className="gallery-slider">
@@ -21,7 +21,7 @@ const GallerySlider = ({ images }) => {
         spaceBetween={10}
         slidesPerView={1}
         onSlideChange={(swiper) => setSelectedImage(swiper.activeIndex)}
-        className="main-slider"
+        className="main-slider swiper-thumbs"
       >
         {images.map((image, index) => (
           <SwiperSlide key={index}>
@@ -29,23 +29,12 @@ const GallerySlider = ({ images }) => {
               src={image.src} 
               alt={image.alt || `Imagen ${index + 1}`}
               className="slider-image"
+              
             />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      {/* Miniaturas */}
-      <div className="thumbnails">
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image.src}
-            alt={`Miniatura ${index + 1}`}
-            className={`thumbnail ${selectedImage === index ? 'active' : ''}`}
-            onClick={() => setSelectedImage(index)}
-          />
-        ))}
-      </div>
     </div>
   );
 };

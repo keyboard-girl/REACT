@@ -6,26 +6,22 @@ import './HomePage.css'
 import {ProductsGrid} from './ProductsGrid'
 import { useSearchParams } from 'react-router';
 //import { useLocation } from 'react-router';
-import GallerySlider from './components/GallerySlider';
+import GallerySlider from './GallerySlider';
 
 export function HomePage({cart, loadCart}) {
 
     const galleryImages = [
     {
-      src: '/images/product1.jpg',
+      src: '/public/images/banner1.png',
       alt: 'Producto 1'
     },
     {
-      src: '/images/product2.jpg', 
+      src: '/public/images/banner2.png', 
       alt: 'Producto 2'
     },
     {
-      src: '/images/product3.jpg',
+      src: '/public/images/banner3.png',
       alt: 'Producto 3'
-    },
-    {
-      src: '/images/product4.jpg',
-      alt: 'Producto 4'
     }
   ];
 
